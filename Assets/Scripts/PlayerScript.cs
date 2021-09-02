@@ -9,10 +9,14 @@ public class PlayerScript : MonoBehaviour
     public float moveSpeed = 10;
     public float jumpStrength = 100;
 
+    Vector3 startPosition = new Vector3();
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        startPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -21,6 +25,10 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
         }
         else
         {
@@ -32,4 +40,19 @@ public class PlayerScript : MonoBehaviour
             rb.AddForce(new Vector2(0, jumpStrength));
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Respawn")
+        {
+            transform.position = startPosition;
+        }
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            transform.position = startPosition;
+        }
+    }
+
+
 }
