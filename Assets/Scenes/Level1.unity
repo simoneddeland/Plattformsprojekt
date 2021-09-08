@@ -700,6 +700,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6170108669373872557, guid: e5b8bad3ca53b414d9a4a049f0ecd2b5, type: 3}
+      propertyPath: nextLevel
+      value: Level2
+      objectReference: {fileID: 0}
     - target: {fileID: 3758415460465341964, guid: e5b8bad3ca53b414d9a4a049f0ecd2b5, type: 3}
       propertyPath: m_Name
       value: flagBlue2

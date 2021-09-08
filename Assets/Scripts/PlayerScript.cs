@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
 
     Rigidbody2D rb;
-    public float moveSpeed = 10;
-    public float jumpStrength = 100;
+    public float moveSpeed = 7;
+    public float jumpStrength = 400;
 
     Vector3 startPosition = new Vector3();
 
@@ -46,6 +47,7 @@ public class PlayerScript : MonoBehaviour
         if (collision.gameObject.tag == "Respawn")
         {
             transform.position = startPosition;
+            
         }
 
         if (collision.gameObject.tag == "Enemy")
