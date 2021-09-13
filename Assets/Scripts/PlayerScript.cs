@@ -36,7 +36,7 @@ public class PlayerScript : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && OnGround())
         {
             rb.AddForce(new Vector2(0, jumpStrength));
         }
@@ -53,6 +53,19 @@ public class PlayerScript : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             transform.position = startPosition;
+        }
+    }
+
+    bool OnGround()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, LayerMask.GetMask("ground"));
+        if (hit.collider == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
         }
     }
 

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8642879367321609360}
   - component: {fileID: 7090628552069118823}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: grassHalf_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6109991296471510935}
   - component: {fileID: 2833151309075788792}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: grassHalf_mid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 38209361271489328}
   - component: {fileID: 1599846563631766350}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: grassHalf_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7425847116593662609}
   - component: {fileID: 2537963044360285300}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: grassHalf_mid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 1612738707838887444}
   - component: {fileID: 5274853878428596761}
   - component: {fileID: 5352484342247326774}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GrassHalfMedium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
