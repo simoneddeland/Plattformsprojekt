@@ -5,17 +5,57 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
 
-    public GameObject player;
+    GameObject player;
+    public float verticalPadding = 3.0f;
+    public float horizontalPadding = 3.0f;
+
+    float cameraHeight;
+    float cameraWidth;
+
+    float maxHorizontalDistance;
+    float maxVerticalDistance;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
+        Camera cam = GetComponent<Camera>();
+        cameraHeight = cam.orthographicSize;
+        cameraWidth = cameraHeight * cam.aspect;
+
+        maxHorizontalDistance = cameraWidth - horizontalPadding;
+        maxVerticalDistance = cameraHeight - verticalPadding;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
+        if (player.transform.position.x < transform.position.x - maxHorizontalDistance)
+        {
+            SetX(player.transform.position.x + maxHorizontalDistance);
+        }
+        if (player.transform.position.x > transform.position.x + maxHorizontalDistance)
+        {
+            SetX(player.transform.position.x - maxHorizontalDistance);
+        }
+
+        if (player.transform.position.y > transform.position.y + maxVerticalDistance)
+        {
+            SetY(player.transform.position.y - maxVerticalDistance);
+        }
+        if (player.transform.position.y < transform.position.y - maxVerticalDistance)
+        {
+            SetY(player.transform.position.y + maxVerticalDistance);
+        }
+    }
+
+    void SetX(float newX)
+    {
+        transform.position = new Vector3(newX, transform.position.y, transform.position.z);
+    }
+
+    void SetY(float newY)
+    {
+        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
     }
 }
