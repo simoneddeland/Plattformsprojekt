@@ -6,11 +6,9 @@ public class CameraScript : MonoBehaviour
 {
 
     GameObject player;
-    public float verticalPadding = 3.0f;
-    public float horizontalPadding = 3.0f;
 
-    float cameraHeight;
-    float cameraWidth;
+    public float horizontalPadding = 3.0f;
+    public float verticalPadding = 3.0f;
 
     float maxHorizontalDistance;
     float maxVerticalDistance;
@@ -19,9 +17,10 @@ public class CameraScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+
         Camera cam = GetComponent<Camera>();
-        cameraHeight = cam.orthographicSize;
-        cameraWidth = cameraHeight * cam.aspect;
+        float cameraHeight = cam.orthographicSize;
+        float cameraWidth = cam.aspect * cameraHeight;
 
         maxHorizontalDistance = cameraWidth - horizontalPadding;
         maxVerticalDistance = cameraHeight - verticalPadding;
@@ -34,6 +33,7 @@ public class CameraScript : MonoBehaviour
         {
             SetX(player.transform.position.x + maxHorizontalDistance);
         }
+
         if (player.transform.position.x > transform.position.x + maxHorizontalDistance)
         {
             SetX(player.transform.position.x - maxHorizontalDistance);
@@ -58,4 +58,6 @@ public class CameraScript : MonoBehaviour
     {
         transform.position = new Vector3(transform.position.x, newY, transform.position.z);
     }
+
+
 }
