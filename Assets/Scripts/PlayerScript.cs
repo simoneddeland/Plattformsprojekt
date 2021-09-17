@@ -12,6 +12,9 @@ public class PlayerScript : MonoBehaviour
 
     public GameObject fireBall;
 
+    public AudioSource fireInTheHole;
+
+
     Vector3 startPosition = new Vector3();
 
 
@@ -48,6 +51,8 @@ public class PlayerScript : MonoBehaviour
             GameObject newFireball = Instantiate(fireBall, transform.position, Quaternion.identity);
             Rigidbody2D fireRb = newFireball.GetComponent<Rigidbody2D>();
             fireRb.velocity = new Vector2(10, 0);
+            fireInTheHole.Play();
+            
         }
     }
 
