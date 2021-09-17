@@ -10,6 +10,8 @@ public class PlayerScript : MonoBehaviour
     public float moveSpeed = 7;
     public float jumpStrength = 400;
 
+    public GameObject fireBall;
+
     Vector3 startPosition = new Vector3();
 
 
@@ -39,6 +41,13 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && OnGround())
         {
             rb.AddForce(new Vector2(0, jumpStrength));
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            GameObject newFireball = Instantiate(fireBall, transform.position, Quaternion.identity);
+            Rigidbody2D fireRb = newFireball.GetComponent<Rigidbody2D>();
+            fireRb.velocity = new Vector2(10, 0);
         }
     }
 
